@@ -1,5 +1,5 @@
 module.exports = (application)=>{
-    application.get('/',(req,res)=>{
-        application.app.controllers.index.get(application, req, res);
+    application.get('/users',(req,res)=>{
+        application.app.controllers.index.users(application, req, res);
     });
 }
