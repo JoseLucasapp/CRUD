@@ -1,0 +1,23 @@
+{
+  "name": "CRUD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseLucasapp/CRUD.git"
+  },
+  "keywords": [],
+  "author": "José Lucas <josluc2016@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoseLucasapp/CRUD/issues"
+  },
+  "homepage": "https://github.com/JoseLucasapp/CRUD#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
