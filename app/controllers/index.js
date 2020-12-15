@@ -1,5 +1,10 @@
-const { application } = require("express");
-
 module.exports.users = (application, req, res)=>{
-    res.send('users')
+    res.send('users');
+}
+
+module.exports.new = (application, req, res)=>{
+    const mongoose = require('mongoose');
+
+    let novoUsuario = new application.app.models.users_model(mongoose);
+    novoUsuario.newUser();
 }
