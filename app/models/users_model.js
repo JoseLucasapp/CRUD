@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 
 function users_model(){
-    mongoose.connect('mongodb://localhost:27017/teste', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{console.log('Conectado no Mongo')}).catch((err)=>{console.log(err)});
+    mongoose.connect('mongodb://localhost:27017/teste', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then(()=>{
+        console.log('Conectado no Mongo')
+    }).catch((err)=>{
+        console.log(err)
+    });
 }
 
 users_model.prototype.newUser = (req,res)=>{
@@ -22,7 +29,7 @@ users_model.prototype.newUser = (req,res)=>{
         name: req.body.name,
     });
     addNewUser.save().then(()=>{
-        res.json(users);
+        res.json({sucess: 'new user successfully registered'});
     }).catch((err)=>{
         res.json(err);
     });
