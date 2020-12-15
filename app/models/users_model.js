@@ -20,16 +20,21 @@ users_model.prototype.newUser = (req,res)=>{
             default: Date.now
         }
     });
-
     const addNewUser = new users({
         name: req.body.name,
         age: req.body.age
     });
     addNewUser.save().then(()=>{
-        res.json({sucess: 'new user successfully registered'});
+        users.find().exec((err, usersData)=>{
+            return res.json(usersData);
+        });
     }).catch((err)=>{
         res.json(err);
     });
+}
+
+users_model.prototype.findAllUsers = (req, res)=>{
+    
 }
 
 module.exports = ()=>{
