@@ -4,10 +4,6 @@ function users_model(){
     mongoose.connect('mongodb://localhost:27017/teste', {
         useNewUrlParser: true,
         useUnifiedTopology: true
-    }).then(()=>{
-        console.log('Conectado no Mongo')
-    }).catch((err)=>{
-        console.log(err)
     });
 }
 
@@ -27,6 +23,7 @@ users_model.prototype.newUser = (req,res)=>{
 
     const addNewUser = new users({
         name: req.body.name,
+        age: req.body.age
     });
     addNewUser.save().then(()=>{
         res.json({sucess: 'new user successfully registered'});
