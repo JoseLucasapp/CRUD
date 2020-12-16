@@ -1,4 +1,16 @@
 const mongoose = require('mongoose');
+const users_schema = mongoose.model('userscollection',{
+    name:{
+        type: String
+    },
+    age:{
+        type:Number
+    },
+    date:{
+        type: Date,
+        default: Date.now
+    }
+});
 
 function users_model(){
     mongoose.connect('mongodb://localhost:27017/teste', {
@@ -8,33 +20,21 @@ function users_model(){
 }
 
 users_model.prototype.newUser = (req,res)=>{
-    const users = mongoose.model('userData', {
-        name:{
-            type: String
-        },
-        age:{
-            type:Number
-        },
-        date:{
-            type: Date,
-            default: Date.now
-        }
-    });
-    const addNewUser = new users({
+    const addNewUser = new users_schema({
         name: req.body.name,
         age: req.body.age
     });
     addNewUser.save().then(()=>{
-        users.find().exec((err, usersData)=>{
-            return res.json(usersData);
-        });
+        res.json({response: 'Sucess'});
     }).catch((err)=>{
         res.json(err);
     });
 }
 
 users_model.prototype.findAllUsers = (req, res)=>{
-    
+    users_schema.find().exec((err, usersData)=>{
+        return res.json(usersData);
+    });
 }
 
 module.exports = ()=>{
