@@ -1,6 +1,13 @@
+const { application } = require("express");
+
 module.exports.users = (application, req, res)=>{
     let findAll = new application.app.models.users_model();
     findAll.findAllUsers(req, res);
+}
+
+module.exports.users_id = (application, req, res)=>{
+    let findById = new application.app.models.users_model();
+    findById.findOneUser(req, res);
 }
 
 module.exports.new = (application, req, res)=>{

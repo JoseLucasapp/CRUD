@@ -37,6 +37,13 @@ users_model.prototype.findAllUsers = (req, res)=>{
     });
 }
 
+users_model.prototype.findOneUser = (req, res)=>{
+    let id = req.params.id;
+    users_schema.findById(id).exec((err, userData)=>{
+        return res.json(userData);
+    });
+}
+
 module.exports = ()=>{
     return users_model;
 }
