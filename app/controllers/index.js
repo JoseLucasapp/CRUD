@@ -14,3 +14,8 @@ module.exports.new = (application, req, res)=>{
     let newUser = new application.app.models.users_model();
     newUser.newUser(req, res);
 }
+
+module.exports.update = (application, req, res)=>{
+    let updateUser = new application.app.models.users_model();
+    updateUser.updateUser(req, res);
+}
