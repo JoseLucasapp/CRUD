@@ -8,7 +8,7 @@ module.exports = (application)=>{
     application.post('/new', (req, res)=>{
         application.app.controllers.index.new(application, req, res);
     });
-    application.put('/update', (req, res)=>{
+    application.put('/update/:id', (req, res)=>{
         application.app.controllers.index.update(application, req, res);
     });
 }

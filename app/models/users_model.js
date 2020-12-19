@@ -44,6 +44,18 @@ users_model.prototype.findOneUser = (req, res)=>{
     });
 }
 
+users_model.prototype.updateUser = (req, res)=>{
+    let id = req.params.id;
+    let body = req.body;
+    users_schema.findByIdAndUpdate(id, body,{new: true}, (err, result)=>{
+        if(err){
+            res.json(err);
+            return;
+        }
+        return res.json(result);
+    });
+}
+
 module.exports = ()=>{
     return users_model;
 }
