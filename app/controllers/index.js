@@ -19,3 +19,8 @@ module.exports.update = (application, req, res)=>{
     let updateUser = new application.app.models.users_model();
     updateUser.updateUser(req, res);
 }
+
+module.exports.delete = (application, req, res)=>{
+    let deleteUser = new application.app.models.users_model();
+    deleteUser.deleteUser(req, res);
+}

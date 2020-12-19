@@ -56,6 +56,17 @@ users_model.prototype.updateUser = (req, res)=>{
     });
 }
 
+users_model.prototype.deleteUser = (req, res)=>{
+    let id = req.params.id;
+    users_schema.findByIdAndDelete(id, (err, result)=>{
+        if(err){
+            res.json(err);
+            return;
+        }
+        return res.json({result: 'sucess'});
+    });
+}
+
 module.exports = ()=>{
     return users_model;
 }

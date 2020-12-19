@@ -11,4 +11,7 @@ module.exports = (application)=>{
     application.put('/update/:id', (req, res)=>{
         application.app.controllers.index.update(application, req, res);
     });
+    application.delete('/delete/:id', (req, res)=>{
+        application.app.controllers.index.delete(application, req, res);
+    });
 }
