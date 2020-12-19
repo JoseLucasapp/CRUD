@@ -1,5 +1,3 @@
-const { application } = require("express");
-
 module.exports.users = (application, req, res)=>{
     let findAll = new application.app.models.users_model();
     findAll.findAllUsers(req, res);

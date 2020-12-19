@@ -1,3 +1,4 @@
+const {validationResult} = require('express-validator');
 const mongoose = require('mongoose');
 const users_schema = mongoose.model('userscollection',{
     name:{
@@ -19,17 +20,25 @@ function users_model(){
     });
 }
 
-users_model.prototype.newUser = (req,res)=>{
-    const addNewUser = new users_schema({
-        name: req.body.name,
-        age: req.body.age
-    });
-    addNewUser.save().then(()=>{
-        res.json({response: 'Sucess'});
-    }).catch((err)=>{
-        res.json(err);
-    });
-}
+users_model.prototype.newUser = ((req,res)=>{
+    const errors = validationResult(req);
+    console.log(errors.array());
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({ errors: errors });
+    }
+    else{
+        const addNewUser = new users_schema({
+            name: req.body.name,
+            age: req.body.age
+        });
+        addNewUser.save().then(()=>{
+            return res.status(200).json({response: 'Sucess'});
+        }).catch((err)=>{
+            res.json(err);
+        });
+    }
+});
 
 users_model.prototype.findAllUsers = (req, res)=>{
     users_schema.find().exec((err, usersData)=>{
