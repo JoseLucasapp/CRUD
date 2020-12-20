@@ -4,6 +4,17 @@
   <p>it is a simple CRUD API that I developed to use it as part of my curriculum and that I use as the basis of my projects</p>
 </p>
 <p>
+  <h3>Routes</h3>
+  <p>GET: /users</p>
+  <p>GET: /users/:id</p>
+  <p>POST: /users/new</p>
+  <p>PUT: /users/update/:id</p>
+  <p>DELETE: /users/delete/:id</p>
+  
+  <p><b>Example:</b></p>
+  <p>http://localhost:3000/users</p>
+</p>
+<p>
   <h3>Used tools</h3>
   <table>
   <tr>
@@ -15,4 +26,3 @@
   </tr>
   </table>
 </p>
-<p></p>
