@@ -1,6 +1,7 @@
 const {validationResult} = require('express-validator');
 const mongoose = require('mongoose');
-const users_schema = mongoose.model('userscollection',{
+
+const users_schema = mongoose.model('users',{
     name:{
         type: String
     },
@@ -14,9 +15,22 @@ const users_schema = mongoose.model('userscollection',{
 });
 
 function users_model(){
-    mongoose.connect('mongodb://localhost:27017/teste', {
+    mongoose.connect('mongodb://localhost:27017/database', {
         useNewUrlParser: true,
         useUnifiedTopology: true
+    });
+}
+
+users_model.prototype.findAllUsers = (req, res)=>{
+    users_schema.find().exec((err, usersData)=>{
+        return res.json(usersData);
+    });
+}
+
+users_model.prototype.findOneUser = (req, res)=>{
+    let id = req.params.id;
+    users_schema.findById(id).exec((err, userData)=>{
+        return res.json(userData);
     });
 }
 
@@ -39,19 +53,6 @@ users_model.prototype.newUser = ((req,res)=>{
         });
     }
 });
-
-users_model.prototype.findAllUsers = (req, res)=>{
-    users_schema.find().exec((err, usersData)=>{
-        return res.json(usersData);
-    });
-}
-
-users_model.prototype.findOneUser = (req, res)=>{
-    let id = req.params.id;
-    users_schema.findById(id).exec((err, userData)=>{
-        return res.json(userData);
-    });
-}
 
 users_model.prototype.updateUser = (req, res)=>{
     let id = req.params.id;
