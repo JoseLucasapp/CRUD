@@ -11,10 +11,12 @@
   
   <h3>How to use</h3>
   
-  <p>cd 'your favorite repository'</p>
-  <p>git clone https://github.com/JoseLucasapp/CRUD</p>
-  <p>cd crud</p>
-  <p>nodemon index.js</p>
+  ```shell
+  cd 'your favorite repository'
+  git clone https://github.com/JoseLucasapp/CRUD
+  cd crud
+  nodemon index.js
+  ```
   
 </p>
 
@@ -22,11 +24,13 @@
   
   <h3>Routes</h3>
   
-  <p>GET: /users</p>
-  <p>GET: /users/:id</p>
-  <p>POST: /users/new</p>
-  <p>PUT: /users/update/:id</p>
-  <p>DELETE: /users/delete/:id</p>
+  ```shell
+  GET: /users
+  GET: /users/:id
+  POST: /users/new
+  PUT: /users/update/:id
+  DELETE: /users/delete/:id
+  ```
   
   <p><b>Example:</b></p>
   
