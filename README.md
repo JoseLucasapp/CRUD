@@ -12,6 +12,7 @@
   <h3>How to use</h3>
   
   ```shell
+  initialize the mongoDB server
   cd 'your favorite repository'
   git clone https://github.com/JoseLucasapp/CRUD
   cd crud
