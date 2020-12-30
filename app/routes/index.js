@@ -10,6 +10,7 @@ module.exports = (application)=>{
     application.post('/users/new',[
         body("name").isLength({min: 3}).withMessage('lower than 3'),
         body("age").isInt().withMessage('Age not number'),
+        body("language").isEmpty().withMessage('Not empty')
     ],(req, res)=>{
         application.app.controllers.index.new(application, req, res);
     });

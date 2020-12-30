@@ -8,6 +8,9 @@ const users_schema = mongoose.model('users',{
     age:{
         type:Number
     },
+    languages:{
+        type: String
+    },
     date:{
         type: Date,
         default: Date.now

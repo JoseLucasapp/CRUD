@@ -35,7 +35,14 @@
   
   <p><b>Example:</b></p>
   
-  <p>http://localhost:3000/users</p>
+  <p>http://localhost:3000/users/new</p>
+  
+  <p><b>body</b></p>
+  <ul>
+    <li>"name": "Lucas"</li>
+    <li>"age": 20</li>
+    <li>"languages": "Javascript"</li>
+  </ul>
 </p>
 
 <p>
