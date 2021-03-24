@@ -50,7 +50,7 @@ users_model.prototype.newUser = ((req,res)=>{
             age: req.body.age
         });
         addNewUser.save().then(()=>{
-            return res.status(200).json({response: 'Sucess'});
+            return res.status(200).json({response: 'Success'});
         }).catch((err)=>{
             res.json(err);
         });
@@ -76,7 +76,7 @@ users_model.prototype.deleteUser = (req, res)=>{
             res.json(err);
             return;
         }
-        return res.json({result: 'sucess'});
+        return res.json({result: 'Success'});
     });
 }
 
