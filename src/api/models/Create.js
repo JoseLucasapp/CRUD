@@ -7,7 +7,6 @@ function Create(){
 
 Create.prototype.create = (req,res)=>{
     const errors = validationResult(req);
-    console.log(errors.array());
 
     if(!errors.isEmpty()){
         return res.status(400).json({ errors: errors });
