@@ -23,6 +23,6 @@
     "consign": "^0.1.6",
     "cors": "^2.8.5",
     "express-validator": "^6.8.0",
-    "mongoose": "^5.13.20"
+    "mongoose": "^6.13.5"
   }
 }
